@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2018-05-18T17:57:21Z</date>
+    <date>2018-05-18T18:25:17Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -569,7 +569,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.tcpestablished.last(#3)} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last(#3)} &gt; 50 )</expression>
+            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.tcpestablished.last()} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last()} &gt;= 50 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.tcpestablished.last(#3)} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last(#3)} &lt;= 40 )</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>TCP accept queue is over 50%  on {HOST.NAME}</name>
@@ -585,7 +585,7 @@
             <tags/>
         </trigger>
         <trigger>
-            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.tcpestablished.last(#3)} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last(#3)} &gt; 75 )</expression>
+            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.tcpestablished.last()} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last()} &gt;= 75 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.tcpestablished.last(#3)} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last(#3)} &lt;= 70 )</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>TCP accept queue is over 75%  on {HOST.NAME}</name>
@@ -601,7 +601,7 @@
             <tags/>
         </trigger>
         <trigger>
-            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.synrecv.last(#3)} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last(#3)} &gt; 50 )</expression>
+            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.synrecv.last()} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last()} &gt;= 50 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.synrecv.last(#3)} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last(#3)} &lt;= 50 )</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>TCP syn_recv queue is over 50%  on {HOST.NAME}</name>
@@ -617,7 +617,7 @@
             <tags/>
         </trigger>
         <trigger>
-            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.synrecv.last(#3)} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last(#3)} &gt; 75 )</expression>
+            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.synrecv.last()} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last()} &gt;= 75 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.synrecv.last(#3)} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last(#3)} &lt;= 75 )</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>TCP syn_recv queue is over 75%  on {HOST.NAME}</name>
