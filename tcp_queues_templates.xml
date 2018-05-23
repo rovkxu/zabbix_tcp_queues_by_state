@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2018-05-18T18:25:17Z</date>
+    <date>2018-05-23T14:23:17Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -22,7 +22,7 @@
                     <name>Network Queues</name>
                 </application>
                 <application>
-                    <name>Network Sockets</name>
+                    <name>Network Sockets Stats</name>
                 </application>
             </applications>
             <items>
@@ -32,7 +32,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.acceptqueue</key>
-                    <delay>30s</delay>
+                    <delay>10m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -73,7 +73,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.close</key>
-                    <delay>30s</delay>
+                    <delay>5m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -99,7 +99,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Network Sockets</name>
+                            <name>Network Sockets Stats</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -114,7 +114,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.closewait</key>
-                    <delay>30s</delay>
+                    <delay>5m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -140,7 +140,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Network Sockets</name>
+                            <name>Network Sockets Stats</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -155,7 +155,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.closing</key>
-                    <delay>30s</delay>
+                    <delay>5m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -181,7 +181,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Network Sockets</name>
+                            <name>Network Sockets Stats</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -196,7 +196,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.finwait1</key>
-                    <delay>30s</delay>
+                    <delay>5m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -222,7 +222,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Network Sockets</name>
+                            <name>Network Sockets Stats</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -237,7 +237,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.finwait2</key>
-                    <delay>30s</delay>
+                    <delay>5m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -263,7 +263,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Network Sockets</name>
+                            <name>Network Sockets Stats</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -278,7 +278,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.lastack</key>
-                    <delay>30s</delay>
+                    <delay>5m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -304,7 +304,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Network Sockets</name>
+                            <name>Network Sockets Stats</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -319,7 +319,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.listen</key>
-                    <delay>30s</delay>
+                    <delay>5m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -345,7 +345,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Network Sockets</name>
+                            <name>Network Sockets Stats</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -360,7 +360,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.synqueue</key>
-                    <delay>30s</delay>
+                    <delay>10m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -401,7 +401,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.synrecv</key>
-                    <delay>30s</delay>
+                    <delay>5m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -427,7 +427,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Network Sockets</name>
+                            <name>Network Sockets Stats</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -442,7 +442,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.synsent</key>
-                    <delay>30s</delay>
+                    <delay>5m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -468,7 +468,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Network Sockets</name>
+                            <name>Network Sockets Stats</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -483,7 +483,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.tcpestablished</key>
-                    <delay>30s</delay>
+                    <delay>5m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -509,7 +509,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Network Sockets</name>
+                            <name>Network Sockets Stats</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -524,7 +524,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>queues.sockstat.tcp.timewait</key>
-                    <delay>30s</delay>
+                    <delay>5m</delay>
                     <history>1w</history>
                     <trends>365d</trends>
                     <status>0</status>
@@ -550,7 +550,171 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Network Sockets</name>
+                            <name>Network Sockets Stats</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>Total Sockets</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>queues.sockstat.total</key>
+                    <delay>5m</delay>
+                    <history>1w</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>sockets</units>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Network Sockets Stats</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>UDP Socket Use</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>queues.sockstat.udp.inuse</key>
+                    <delay>5m</delay>
+                    <history>1w</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>Pkts</units>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Network Sockets Stats</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>UDP Socket Memory</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>queues.sockstat.udp.mem</key>
+                    <delay>5m</delay>
+                    <history>1w</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>Pkts</units>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Network Sockets Stats</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>UDP Packet Loss</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>queues.sockstat.udp.packetloss</key>
+                    <delay>5m</delay>
+                    <history>1w</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>Pkts</units>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Network Sockets Stats</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -569,15 +733,15 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.tcpestablished.last()} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last()} &gt;= 50 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.tcpestablished.last(#3)} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last(#3)} &lt;= 40 )</expression>
+            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.tcpestablished.last()} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last()} &gt;= 50 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.tcpestablished.last()} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last()} &lt;= 20 )</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>TCP accept queue is over 50%  on {HOST.NAME}</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
-            <status>0</status>
-            <priority>3</priority>
+            <status>1</status>
+            <priority>2</priority>
             <description/>
             <type>0</type>
             <manual_close>0</manual_close>
@@ -585,23 +749,29 @@
             <tags/>
         </trigger>
         <trigger>
-            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.tcpestablished.last()} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last()} &gt;= 75 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.tcpestablished.last(#3)} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last(#3)} &lt;= 70 )</expression>
+            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.tcpestablished.last()} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last()} &gt;= 75 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.tcpestablished.last()} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last()} &lt;= 50 )</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>TCP accept queue is over 75%  on {HOST.NAME}</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
-            <status>0</status>
-            <priority>4</priority>
+            <status>1</status>
+            <priority>3</priority>
             <description/>
             <type>0</type>
             <manual_close>0</manual_close>
-            <dependencies/>
+            <dependencies>
+                <dependency>
+                    <name>TCP accept queue is over 50%  on {HOST.NAME}</name>
+                    <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.tcpestablished.last()} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last()} &gt;= 50 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.tcpestablished.last()} * 100 / {Template Queues:queues.sockstat.tcp.acceptqueue.last()} &lt;= 20 )</expression>
+                    <recovery_expression/>
+                </dependency>
+            </dependencies>
             <tags/>
         </trigger>
         <trigger>
-            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.synrecv.last()} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last()} &gt;= 50 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.synrecv.last(#3)} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last(#3)} &lt;= 50 )</expression>
+            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.synrecv.last()} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last()} &gt;= 50 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.synrecv.last()} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last()} &lt;= 20 )</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>TCP syn_recv queue is over 50%  on {HOST.NAME}</name>
@@ -609,6 +779,44 @@
             <correlation_tag/>
             <url/>
             <status>0</status>
+            <priority>2</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.synrecv.last()} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last()} &gt;= 75 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.synrecv.last()} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last()} &lt;= 50 )</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>TCP syn_recv queue is over 75%  on {HOST.NAME}</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>3</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies>
+                <dependency>
+                    <name>TCP syn_recv queue is over 50%  on {HOST.NAME}</name>
+                    <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.synrecv.last()} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last()} &gt;= 50 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.synrecv.last()} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last()} &lt;= 20 )</expression>
+                    <recovery_expression/>
+                </dependency>
+            </dependencies>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{Template Queues:queues.sockstat.total.last()}&gt;40000</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>To many open sockets on {HOST.NAME}</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
             <priority>3</priority>
             <description/>
             <type>0</type>
@@ -617,15 +825,15 @@
             <tags/>
         </trigger>
         <trigger>
-            <expression>( {TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.tcp.synrecv.last()} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last()} &gt;= 75 ) or ( {TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.tcp.synrecv.last(#3)} * 100 / {Template Queues:queues.sockstat.tcp.synqueue.last(#3)} &lt;= 75 )</expression>
+            <expression>({TRIGGER.VALUE}=0 and {Template Queues:queues.sockstat.udp.packetloss.delta(#3)}&gt;0 ) or ({TRIGGER.VALUE}=1 and {Template Queues:queues.sockstat.udp.packetloss.delta(1800)}&gt;0 )</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
-            <name>TCP syn_recv queue is over 75%  on {HOST.NAME}</name>
+            <name>UDP packets lost in the last 30 minutes in {HOST.NAME}!</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
             <status>0</status>
-            <priority>4</priority>
+            <priority>3</priority>
             <description/>
             <type>0</type>
             <manual_close>0</manual_close>
