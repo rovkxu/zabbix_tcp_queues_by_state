@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Creator: Nicolas Magliaro  - Version: 0.3
+# Creator: Nicolas Magliaro  - Version: 0.7
 # date: 16/05/2018
 
 import sys
@@ -17,6 +17,8 @@ def _parse_args():
     parser.add_option(
         "-q", "--queue", dest="queue", default=False, action="store", type="string", help="Define queue trigger SYN||ACCEPTED")
     parser.add_option(
+        "-b", "--buffers", dest="buffer", default=False, action="store", type="string", help="Return buffers values. Use with -p for specific proto")
+    parser.add_option(
         "-t", dest="trigger", action="store_true", help="Return sysctl values")
     parser.add_option(
         "-l", dest="loss", action="store_true", help="Return UDP packet loss sum")
@@ -24,6 +26,8 @@ def _parse_args():
         "-m", dest="memory", action="store_true", help="Return UDP packet in memory")
     parser.add_option(
         "-u", dest="use", action="store_true", help="Return UDP packet in use")
+    parser.add_option(
+        "-o", dest="orphans", action="store_true", help="Return TCP orphans packet")
 
     (options, args) = parser.parse_args()
 
@@ -35,15 +39,18 @@ class Queues:
     """
     def __init__(self, opt):
 
-        self.opt                = opt
-        self.proto              = self.opt.proto
-        self.state              = self.opt.state
-        self.queue              = self.opt.queue
-        self.trigger            = self.opt.trigger
-
-        self.cat_proc           = self.__open_queue_conn()
-        self.conn_states        = self.__set_conn_by_state()
-        self.socket_stats       = self.__get_socket_stats()
+        self.opt                    = opt
+        self.proto                  = self.opt.proto
+        self.state                  = self.opt.state
+        self.queue                  = self.opt.queue
+        self.trigger                = self.opt.trigger
+        self.orphans                = self.opt.orphans
+        self.buffer                 = self.opt.buffer
+        self.cat_proc               = self.__open_queue_conn()
+        self.conn_states            = self.__set_conn_by_state()
+        self.socket_stats           = self.__get_socket_stats()
+        self.tcp_buffer_thresholds  = open("/proc/sys/net/ipv4/tcp_mem", "r").readlines()
+        self.udp_buffer_thresholds  = open("/proc/sys/net/ipv4/udp_mem", "r").readlines()
 
         # TCP States
         self.tcp_states  = {
@@ -76,7 +83,7 @@ class Queues:
             line = line.split(': ')[1].split(' ')[2]
             conn_list.append(line)
         return conn_list
-
+    
     # Return a count of the states by connection
     def __filter_count_conn_by_state(self, state):
         if self.conn_states:
@@ -148,42 +155,103 @@ class Queues:
             a.append(int([x for x in f if x != '\n' and x != ''][-1]))
         return sum(a)
 
-    # Return UDP sockets in memory
-    def get_udp_in_memory(self):
+    # Return sockets in memory
+    def get_used_memory(self):
         process = self.socket_stats
-        return int(process[2].split(' ')[-1])
+        if self.proto == "udp":
+            return int(process[2].split(' ')[-1])
+        if self.proto == "tcp":
+            return int(process[1].split(' ')[-1])
+        return
 
     # Return UDP sockets in use
-    def get_udp_in_use(self):
+    def get_sockets_in_use(self):
         process = self.socket_stats
-        return int(process[2].split()[2])
+        if self.proto == "udp":
+            return int(process[2].split()[2])
+        if self.proto == "tcp":
+            return int(process[1].split()[2])
+        return
 
+    # Return TCP orphans
+    def get_tcp_orphans(self):
+        procfile = self.socket_stats
+        return int(procfile[1].split(' ')[4])
 
+    def get_buffer_threshold(self,th):
+        """
+        Param = low_threshold. Return the tcp_mem variable in the kernel for the memory usage by different TCP sockets.
+        Param = press_threshold. Return at which point to start pressuring memory usage down. 
+        Param = max_threshold. Return how many memory pages it may use maximally in the kernel 
+        """
+        if self.proto == "udp":
+            if th == "low_threshold":
+                return int(self.udp_buffer_thresholds[0].split('\t')[0])
+            if th == "press_threshold":
+                return int(self.udp_buffer_thresholds[0].split('\t')[1])
+            if th == "max_threshold":
+                return int(self.udp_buffer_thresholds[0].split('\t')[2])
+        if self.proto == "tcp":
+            if th == "low_threshold":
+                return int(self.tcp_buffer_thresholds[0].split('\t')[0])
+            if th == "press_threshold":
+                return int(self.tcp_buffer_thresholds[0].split('\t')[1])
+            if th == "max_threshold":
+                return int(self.tcp_buffer_thresholds[0].split('\t')[2])
+        return
+
+class Run:
+    """
+    Args1: List: OptParse()
+    Implement the run() method
+    """
+    def __init__(self, opts = []):
+        self.opts = opts
+        self.connections = Queues(self.opts)
+
+    def run(self):
+        if not self.opts.queue and not self.opts.state and not self.opts.buffer and self.opts.loss == None and self.opts.orphans == None and self.opts.memory == None and self.opts.use == None:
+            print self.connections.total_sockets()
+        elif self.opts.proto.lower() == "tcp":
+            if self.opts.state and self.opts.state is not None:
+                print self.connections.get_count_by_state(opts.state)
+                sys.exit()
+            if self.opts.queue and self.opts.queue is not None and not self.opts.trigger:
+                print self.connections.tcp_queues_trigger()
+                sys.exit()
+            if self.opts.trigger and self.opts.queue:
+                print self.connections.get_queue_value()
+                sys.exit()
+            if self.opts.orphans:
+                print self.connections.get_tcp_orphans()
+                sys.exit()
+            if self.opts.buffer:
+                print self.connections.get_buffer_threshold(self.opts.buffer)
+                sys.exit()
+            if self.opts.memory:
+                print self.connections.get_used_memory()
+                sys.exit()
+            if self.opts.use:
+                print self.connections.get_sockets_in_use()
+                sys.exit()
+            print self.connections.json_conn_list_count()
+        
+        elif self.opts.proto.lower() == "udp":
+            if self.opts.loss:
+                print self.connections.get_pkt_loss_sum()
+                sys.exit()
+            if self.opts.memory:
+                print self.connections.get_used_memory()
+                sys.exit()
+            if self.opts.use:
+                print self.connections.get_sockets_in_use()
+                sys.exit()
+            if self.opts.buffer:
+                print self.connections.get_buffer_threshold(self.opts.buffer)
+                sys.exit()
+        else:
+            print None
 if __name__ == "__main__":
     opts = _parse_args()
-    connections = Queues(opts)
-    if not opts.queue and not opts.state and opts.loss == None and opts.memory == None and opts.use == None:
-        print connections.total_sockets()
-    elif opts.proto.lower() == "tcp":
-        if opts.state and opts.state is not None:
-            print connections.get_count_by_state(opts.state)
-            sys.exit()
-        if opts.queue and opts.queue is not None and not opts.trigger:
-            print connections.tcp_queues_trigger()
-            sys.exit()
-        if opts.trigger and opts.queue:
-            print connections.get_queue_value()
-            sys.exit()
-        print connections.json_conn_list_count()
-    elif opts.proto.lower() == "udp":
-        if opts.loss:
-            print connections.get_pkt_loss_sum()
-            sys.exit()
-        if opts.memory:
-            print connections.get_udp_in_memory()
-            sys.exit()
-        if opts.use:
-            print connections.get_udp_in_use()
-            sys.exit()
-    else:
-        print None
+    run = Run(opts).run
+    run()
