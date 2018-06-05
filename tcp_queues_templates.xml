@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2018-06-01T20:20:36Z</date>
+    <date>2018-06-05T14:17:06Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -435,7 +435,16 @@
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
-                    <preprocessing/>
+                    <preprocessing>
+                        <step>
+                            <type>1</type>
+                            <params>1024</params>
+                        </step>
+                        <step>
+                            <type>1</type>
+                            <params>4</params>
+                        </step>
+                    </preprocessing>
                     <jmx_endpoint/>
                     <master_item/>
                 </item>
@@ -476,7 +485,16 @@
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
-                    <preprocessing/>
+                    <preprocessing>
+                        <step>
+                            <type>1</type>
+                            <params>1024</params>
+                        </step>
+                        <step>
+                            <type>1</type>
+                            <params>4</params>
+                        </step>
+                    </preprocessing>
                     <jmx_endpoint/>
                     <master_item/>
                 </item>
@@ -492,7 +510,7 @@
                     <status>0</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
-                    <units>pages</units>
+                    <units>bytes</units>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -517,7 +535,16 @@
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
-                    <preprocessing/>
+                    <preprocessing>
+                        <step>
+                            <type>1</type>
+                            <params>1024</params>
+                        </step>
+                        <step>
+                            <type>1</type>
+                            <params>4</params>
+                        </step>
+                    </preprocessing>
                     <jmx_endpoint/>
                     <master_item/>
                 </item>
@@ -599,7 +626,16 @@
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
-                    <preprocessing/>
+                    <preprocessing>
+                        <step>
+                            <type>1</type>
+                            <params>1024</params>
+                        </step>
+                        <step>
+                            <type>1</type>
+                            <params>4</params>
+                        </step>
+                    </preprocessing>
                     <jmx_endpoint/>
                     <master_item/>
                 </item>
@@ -927,7 +963,16 @@
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
-                    <preprocessing/>
+                    <preprocessing>
+                        <step>
+                            <type>1</type>
+                            <params>1024</params>
+                        </step>
+                        <step>
+                            <type>1</type>
+                            <params>4</params>
+                        </step>
+                    </preprocessing>
                     <jmx_endpoint/>
                     <master_item/>
                 </item>
@@ -968,7 +1013,16 @@
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
-                    <preprocessing/>
+                    <preprocessing>
+                        <step>
+                            <type>1</type>
+                            <params>1024</params>
+                        </step>
+                        <step>
+                            <type>1</type>
+                            <params>4</params>
+                        </step>
+                    </preprocessing>
                     <jmx_endpoint/>
                     <master_item/>
                 </item>
@@ -984,7 +1038,7 @@
                     <status>0</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
-                    <units>pages</units>
+                    <units>bytes</units>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -1009,7 +1063,16 @@
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
-                    <preprocessing/>
+                    <preprocessing>
+                        <step>
+                            <type>1</type>
+                            <params>1024</params>
+                        </step>
+                        <step>
+                            <type>1</type>
+                            <params>4</params>
+                        </step>
+                    </preprocessing>
                     <jmx_endpoint/>
                     <master_item/>
                 </item>
@@ -1091,7 +1154,16 @@
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
-                    <preprocessing/>
+                    <preprocessing>
+                        <step>
+                            <type>1</type>
+                            <params>1024</params>
+                        </step>
+                        <step>
+                            <type>1</type>
+                            <params>4</params>
+                        </step>
+                    </preprocessing>
                     <jmx_endpoint/>
                     <master_item/>
                 </item>
